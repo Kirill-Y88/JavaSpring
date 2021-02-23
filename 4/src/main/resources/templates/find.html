@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spring MVC HW3 Find</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>найденные продукты:</h1>
+
+<table  class="table">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Наименование</td>
+        <td>Цена</td>
+        <td>Действия</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr     >
+        <!--/*@thymesVar id="findProducts" type="ru.geekbrains.SB4.model.Product"*/-->
+        <td th:text="${findProducts.id}"></td>
+        <td th:text="${findProducts.title}"></td>
+        <td th:text="${'руб. : ' + findProducts.cost}"></td>
+        <td><a class="btn btn-danger" th:href="@{'/product/delete/' + ${findProducts.title}}">Удалить</a></td>
+    </tr>
+
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
